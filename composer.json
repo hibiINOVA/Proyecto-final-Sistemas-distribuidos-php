@@ -1,0 +1,21 @@
+{
+    "name": "migue/php",
+    "type": "project",
+    "require": {
+        "lcobucci/jwt": "^5.6",
+        "ramsey/uuid": "^4.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/",
+            "Config\\":"config/",
+            "Router\\":"router"
+        }
+    },
+    "authors": [
+        {
+            "name": "DRMiguel25",
+            "email": "l.dirm040525@itses.edu.mx"
+        }
+    ]
+}
