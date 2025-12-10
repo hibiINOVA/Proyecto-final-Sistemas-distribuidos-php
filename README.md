@@ -1,7 +1,3 @@
-¡Entendido\! Aquí tienes el `README.md` y el script SQL para documentar la configuración de tu proyecto PHP, que utiliza **PostgreSQL** mediante Docker.
-
------
-
 # Catálogo de Videojuegos - Backend (PHP)
 
 Este proyecto es el servicio backend (API REST) construido en PHP para gestionar un catálogo de videojuegos. La persistencia de datos se maneja con **PostgreSQL**, ejecutado a través de un contenedor Docker.
