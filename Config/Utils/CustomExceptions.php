@@ -1,10 +1,10 @@
 <?php
-    namespace Config\utils;
+    namespace Config\Utils;
     
     use Exception;
 
     //Hereda lo que tiene la liberia de php
-    class CustomException extends Exception
+    class CustomExceptions extends Exception
     {
 
     //Opcion predeterminada para mensaje de error.
