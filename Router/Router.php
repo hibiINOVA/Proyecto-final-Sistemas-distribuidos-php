@@ -7,10 +7,6 @@ use App\Controllers\VideojuegosController;
 
 class Router
 {
-    /**
-     * @var array $routes Define las rutas disponibles, su controlador/método y el tipo de autenticación.
-     * Tipo de Auth: 1 = JWT requerido, 0 = SIMPLE/Ninguna, null/cualquier otro = Sin Auth.
-     */
     private static $routes = [
         "GET" => [
             "videojuegos"       => [VideojuegosController::class, "index", 0],
@@ -140,14 +136,11 @@ class Router
         if ($REQUEST_METHOD === 'GET' || $REQUEST_METHOD === 'DELETE') {
             $requestData = $_GET['params'] ?? null;
             
-            // Retorna OBJETO (para GET/DELETE)
             return $requestData ? json_decode($requestData) : (object)[]; 
         } else {
-            // Este es el bloque POST/PUT. ¡Debe devolver ARRAY!
             $input = file_get_contents("php://input"); 
             error_log("📨 RAW INPUT = " . $input);
             
-            // Retorna ARRAY (para POST/PUT)
             return $input ? json_decode($input, true) : []; 
         }
     }

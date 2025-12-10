@@ -2,7 +2,7 @@
 namespace App\Services;
 
 use App\Models\VideojuegosModel;
-use Config\Utils\Utils as util; // asumo que tienes util::uuid() y valida básica
+use Config\Utils\Utils as util;
 
 class VideojuegosService
 {
@@ -17,32 +17,24 @@ class VideojuegosService
     {
         $res = VideojuegosModel::getById($id);
         
-        // 1. Manejar error de la DB
         if (isset($res['error']) && $res['error']) return $res;
         
-        // 🛑 CORRECCIÓN CLAVE:
-        // El array de resultados está en $res['data']. 
-        // Si usamos db::query(), devuelve un array de objetos.
         $results = $res['data'] ?? []; 
         
-        // Verificamos si results es un array y tiene elementos
         $row = is_array($results) && count($results) ? $results[0] : null;
         
-        // 2. Manejar error de negocio (no encontrado)
         if (!$row) return ['error' => true, 'msg' => 'Videojuego no encontrado'];
         
-        // 3. Éxito
         return ['error' => false, 'data' => $row];
     }
 
     public static function create(array $payload)
     {
-        // validaciones básicas
         if (empty($payload['titulo']) || empty($payload['usuario_registro'])) {
             return ['error' => true, 'msg' => 'titulo y usuario_registro son obligatorios'];
         }
 
-        $id = util::uuid(); // si no existe, usa uniqid()
+        $id = util::uuid();
 
         $data = [
             'id' => $id,
@@ -68,7 +60,6 @@ class VideojuegosService
 
     public static function update(string $id, array $payload)
     {
-        // opcional: verificar existencia antes
         $exists = VideojuegosModel::getById($id);
         if (!is_array($exists) || count($exists) === 0) {
             return ['error' => true, 'msg' => 'Videojuego no encontrado'];

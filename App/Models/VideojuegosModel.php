@@ -5,10 +5,8 @@ use Config\Database\Methods as db;
 
 class VideojuegosModel
 {
-    // Listar todos (devuelve array)
     public static function getAll()
     {
-        // CORREGIDO: Usar ARRAY [] en lugar de OBJETO (object)[]
         $query = [
             'query' => "SELECT id, titulo, desarrollador, plataforma, genero, año_lanzamiento, precio, calificacion, modo_juego, clasificacion, usuario_registro, fecha_creacion, fecha_actualizacion
                         FROM videojuegos
@@ -22,7 +20,6 @@ class VideojuegosModel
     // Obtener uno por id
     public static function getById(string $id)
     {
-        // CORREGIDO: Usar ARRAY [] en lugar de OBJETO (object)[]
         $query = [
             'query' => "SELECT id, titulo, desarrollador, plataforma, genero, año_lanzamiento, precio, calificacion, modo_juego, clasificacion, usuario_registro, fecha_creacion, fecha_actualizacion
                         FROM videojuegos
@@ -33,10 +30,8 @@ class VideojuegosModel
         return db::query($query);
     }
 
-    // Crear nuevo videojuego
     public static function create(array $data)
     {
-        // CORREGIDO: Usar ARRAY [] en lugar de OBJETO (object)[]
         $query = [
             'query' => "INSERT INTO videojuegos
                         (id, titulo, desarrollador, plataforma, genero, año_lanzamiento, precio, calificacion, modo_juego, clasificacion, usuario_registro, fecha_creacion, fecha_actualizacion)
@@ -59,7 +54,6 @@ class VideojuegosModel
         return db::save($query);
     }
 
-    // Actualizar (campos dinámicos)
     public static function update(string $id, array $data)
     {
         $fields = [];
@@ -80,7 +74,6 @@ class VideojuegosModel
 
         $params[] = $id;
 
-        // CORREGIDO: Usar ARRAY [] en lugar de OBJETO (object)[]
         $query = [
             'query' => "UPDATE videojuegos
                         SET " . implode(', ', $fields) . ", fecha_actualizacion = CURRENT_TIMESTAMP
@@ -91,10 +84,8 @@ class VideojuegosModel
         return db::save($query);
     }
 
-    // Eliminar
     public static function delete(string $id)
     {
-        // CORREGIDO: Usar ARRAY [] en lugar de OBJETO (object)[]
         $query = [
             'query' => "DELETE FROM videojuegos WHERE id = ?",
             'params' => [$id]
