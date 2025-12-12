@@ -1,11 +1,45 @@
-CREATE TABLE usuarios (
+CREATE TABLE videojuegos (
     id CHAR(36) PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15),
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_ultima_sesion TIMESTAMP NULL,
-    activo BOOLEAN DEFAULT TRUE
+    titulo VARCHAR(150) NOT NULL,
+    desarrollador VARCHAR(100),
+    plataforma VARCHAR(50),
+    genero VARCHAR(50),
+    año_lanzamiento INTEGER,
+    precio DECIMAL(8,2),
+    calificacion DECIMAL(2,1),
+    modo_juego VARCHAR(30),
+    clasificacion VARCHAR(10),
+    usuario_registro CHAR(36) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO videojuegos (
+    id, titulo, desarrollador, plataforma, genero, año_lanzamiento,
+    precio, calificacion, modo_juego, clasificacion,
+    usuario_registro, fecha_creacion, fecha_actualizacion
+) VALUES
+('a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d', 'Cyberpunk 2077', 'CD Projekt RED', 'PC, PS5, XSX', 'Action RPG', 2020, 1199.99, 8.5, 'Singleplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e', 'Elden Ring', 'FromSoftware', 'PC, PS5, XSX', 'Action RPG', 2022, 1099.50, 9.8, 'Singleplayer, Coop', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f', 'Minecraft', 'Mojang', 'Multiplataforma', 'Sandbox', 2011, 299.00, 9.0, 'Multiplayer', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a', 'The Legend of Zelda: BOTW', 'Nintendo', 'Switch', 'Aventura', 2017, 1200.00, 9.7, 'Singleplayer', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b', 'God of War Ragnarök', 'Santa Monica Studio', 'PS5', 'Action-Adventure', 2022, 1399.99, 9.6, 'Singleplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c', 'Hades', 'Supergiant Games', 'PC, Switch', 'Roguelike', 2020, 399.00, 9.3, 'Singleplayer', 'T', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d', 'Red Dead Redemption 2', 'Rockstar Games', 'PS4, XB1, PC', 'Western RPG', 2018, 799.50, 9.7, 'Singleplayer, Multiplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e', 'FIFA 25', 'EA Sports', 'Multiplataforma', 'Sports', 2024, 1499.00, 7.5, 'Multiplayer', 'E', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:11.072353', '2025-12-10 04:58:11.072353'),
+('2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f', 'The Last of Us Part II', 'Naughty Dog', 'PS4, PS5', 'Survival Horror', 2020, 1100.00, 9.4, 'Singleplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f80', 'Animal Crossing: New Horizons', 'Nintendo', 'Switch', 'Simulación', 2020, 1250.00, 9.1, 'Multiplayer', 'E', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8091', 'Doom Eternal', 'id Software', 'PC, PS4, XB1, Switch', 'FPS', 2020, 899.99, 9.0, 'Singleplayer, Multiplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8091a2', 'Stardew Valley', 'ConcernedApe', 'Multiplataforma', 'Simulación, RPG', 2016, 149.99, 9.2, 'Singleplayer, Coop', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('6a7b8c9d-0e1f-2a3b-4c5d-6e7f8091a2b3', 'Horizon Forbidden West', 'Guerrilla Games', 'PS4, PS5', 'Action RPG', 2022, 1399.00, 9.5, 'Singleplayer', 'T', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('7b8c9d0e-1f2a-3b4c-5d6e-7f8091a2b3c4', 'Forza Horizon 5', 'Playground Games', 'Xbox, PC', 'Carreras', 2021, 999.00, 9.3, 'Multiplayer', 'E', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('8c9d0e1f-2a3b-4c5d-6e7f-8091a2b3c4d5', 'Resident Evil 4 Remake', 'Capcom', 'PC, PS5, XSX', 'Survival Horror', 2023, 1150.00, 9.5, 'Singleplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('9d0e1f2a-3b4c-5d6e-7f80-91a2b3c4d5e6', 'Tears of the Kingdom', 'Nintendo', 'Switch', 'Aventura', 2023, 1200.00, 9.6, 'Singleplayer', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:58:34.942619', '2025-12-10 04:58:34.942619'),
+('b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e', 'Factorio', 'Wube Software', 'PC', 'Estrategia, Simulación', 2020, 499.00, 9.9, 'Singleplayer, Coop', 'E', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f', 'The Sims 4', 'Maxis', 'PC, PS4, XB1', 'Simulación', 2014, 0.00, 7.8, 'Singleplayer', 'T', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f80', 'Overwatch 2', 'Blizzard Entertainment', 'PC, PS5, XSX', 'FPS, Team-based', 2022, 0.00, 8.0, 'Multiplayer', 'T', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8091', 'Hollow Knight', 'Team Cherry', 'PC, Switch', 'Metroidvania', 2017, 199.99, 9.3, 'Singleplayer', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8091a2', 'Super Mario Odyssey', 'Nintendo', 'Switch', 'Plataformas', 2017, 1200.00, 9.7, 'Singleplayer', 'E', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f', 'Assassin''s Creed Valhalla', 'Ubisoft', 'PC, PS5, XSX', 'Action RPG', 2020, 699.00, 8.2, 'Singleplayer', 'M', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6g', 'Portal 2', 'Valve', 'PC, PS3, XB360', 'Puzzle-Platformer', 2011, 99.99, 9.8, 'Singleplayer, Coop', 'E10+', 'e843955a-fd69-43d5-970c-bac46f25199d', '2025-12-10 04:59:03.436297', '2025-12-10 04:59:03.436297'),
+('97a42fd4-6bb5-413b-ae85-74d3b7ee5fbd', 'The Witcher 4', 'CD Projekt RED', 'PS5', 'RPG', 2015, 999.99, 9.8, 'Singleplayer', 'M', 'd1be722a-f1f9-43de-9557-52d6975e3ced', '2025-12-11 02:58:55.354005', '2025-12-11 02:59:09.721723');
